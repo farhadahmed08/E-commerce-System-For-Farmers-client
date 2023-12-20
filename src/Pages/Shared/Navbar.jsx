@@ -1,10 +1,112 @@
+import { Link, NavLink } from "react-router-dom";
+import UseAuth from "../../Hooks/UseAuth";
+import logo from "../../assets/Organic Farm Logo.jpg"
+
 
 
 const Navbar = () => {
+    const { user, logOut } = UseAuth();
+
+
+    const navLinks = (
+        <>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <Link to="/ourProducts">Our Product</Link>
+          </li>
+          <li>
+            <Link to="/orderProducts">Order Products</Link>
+          </li>
+          <li>
+            <Link to="/contactUs">Contact Us</Link>
+          </li>
+          <li>
+            <Link to="/contactUs">About Us</Link>
+          </li>
+    
+        </>
+      );
+
+
     return (
-        <div>
-            <h1>navbar</h1>
+        <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl bg-black text-white">
+        <div className="w-20 rounded-full">
+          {" "}
+          <img src={logo} alt="logo" />
+         
         </div>
+        <div className="navbar-start">
+          <div className="dropdown">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              {navLinks}
+            </ul>
+          </div>
+        </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        </div>
+        <div className="navbar-end">
+            {user?.email ? 
+              <div className="dropdown dropdown-end absolute">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full ">
+                    <img src={user.photoURL} alt={user.displayName} />
+                  </div>
+                </label>
+               <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                 <NavLink to="/myAdded"> <button className="btn btn-sm  btn-ghost text-center">
+                 My added food
+                  </button></NavLink>
+                </li>
+                <li>
+                <NavLink to="/addedFood"><button className="btn btn-sm  btn-ghost">
+                Add A food item
+                  </button></NavLink>
+                </li>
+                <li>
+               <NavLink to="/myOrder"><button className="btn btn-sm  btn-ghost">
+                My order
+                  </button></NavLink>
+                </li>
+              </ul>
+             
+              <button onClick={logOut}  className="btn btn-sm  btn-ghost relative bottom-3">Logout</button>
+              
+              </div>
+             : 
+             (
+                <Link to='/login'>
+                <button className="btn btn-sm  btn-ghost">Login</button>
+            </Link>
+            )
+            }
+          </div>
+      </div>
     );
 };
 
