@@ -1,11 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import UseAuth from "../../Hooks/UseAuth";
 import logo from "../../assets/Organic Farm Logo.jpg"
+import UseCart from "../../Hooks/UseCart";
+import { FaShoppingCart } from "react-icons/fa";
 
 
 
 const Navbar = () => {
     const { user, logOut } = UseAuth();
+    const [cart]  = UseCart();
+
+
 
 
     const navLinks = (
@@ -14,10 +19,10 @@ const Navbar = () => {
             <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/ourProducts">Our Product</Link>
+            <Link to="/product">Our Product</Link>
           </li>
           <li>
-            <Link to="/orderProducts">Order Products</Link>
+            <Link to="/order/Vegetables">Order Products</Link>
           </li>
           <li>
             <Link to="/contactUs">Contact Us</Link>
@@ -25,6 +30,20 @@ const Navbar = () => {
           <li>
             <Link to="/contactUs">About Us</Link>
           </li>
+
+          {
+            
+            user &&  <li><Link to="/dashboard/userHome">Dashboard</Link></li>
+            
+        }
+
+
+          { user&& <li><Link to="/dashboard/cart">
+            <button className="btn">
+            <FaShoppingCart  />
+                <div className="badge badge-secondary">+{cart.length}</div>
+            </button>
+            </Link></li>}
     
         </>
       );
