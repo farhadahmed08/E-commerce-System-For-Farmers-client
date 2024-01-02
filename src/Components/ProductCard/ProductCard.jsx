@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const ProductCard = ({ item }) => {
   const { user } = UseAuth();
-  const { title, image, price, description, _id } = item;
+  const { title, image, price, description, _id,unit_quantity } = item;
   const navigate = useNavigate();
   const location = useLocation();
   const axiosSecure = useAxiosSecure();
@@ -59,11 +59,16 @@ const ProductCard = ({ item }) => {
 }
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
-    <figure><img src={image} alt="Shoes" /></figure>
+    <figure><img className="w-full h-[260px] rounded hover:scale-110 transition-all duration-300" src={image} alt="Shoes" /></figure>
     <p className="absolute right-0 mr-4 mt-4 px-4 bg-slate-900 text-white">${price}</p>
     <div className="card-body flex flex-col items-center">
         <h2 className="card-title">{title}</h2>
         <p>{description}</p>
+        {/* <p>Price: <span className="font-bold text-red-500">{price}rm</span></p> */}
+        <div className="flex w-full justify-end">
+          <p>Unit: <span className="font-bold text-green-600">{unit_quantity}</span></p>
+         <span className="text-green-600"> <p>Available</p></span>
+        </div>
         <div className="card-actions justify-end">
             <button
             onClick={handleAddToCart} 
