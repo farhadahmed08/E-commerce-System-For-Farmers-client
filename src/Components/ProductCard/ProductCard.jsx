@@ -1,46 +1,18 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import UseAuth from "../../Hooks/UseAuth";
-import useAxiosSecure from "../../Hooks/UseAxiosSecure";
-import UseCart from "../../Hooks/UseCart";
+
 import Swal from "sweetalert2";
 
 const ProductCard = ({ item }) => {
   const { user } = UseAuth();
-  const { title, image, price, description, _id,unit_quantity } = item;
+  const { title, image, price, description, _id,inventory } = item;
   const navigate = useNavigate();
   const location = useLocation();
-  const axiosSecure = useAxiosSecure();
-  const [,refetch] = UseCart();
-  const handleAddToCart =()=>{
-    // console.log(food,user.email);
-    if (user && user.email) {
-      //  send cart item to the database 
+  
+  const handleGoToLogin =()=>{
+    
+    if (!user) {
       
-      const cartItem = {
-        productId:_id,
-        email:user.email,
-        title,
-        image,
-        price
-      }
-      axiosSecure.post('/carts',cartItem)
-      .then(res=>{
-        console.log(res.data)
-        if (res.data.insertedId) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `${title} has been added to the cart`,
-            showConfirmButton: false,
-            timer: 1500
-          });
-          //refetch cart to update the cart items count
-          refetch();
-        }
-      });
-
-    }
-    else{
       Swal.fire({
         title: "You are not logged In?",
         text: "Please login to add to the cart!",
@@ -53,12 +25,13 @@ const ProductCard = ({ item }) => {
         if (result.isConfirmed) {
         //TODO: send the user to the login page 
         navigate('/login',{state:{from:location}})
+        // navigate('/login')
         }
       });
     }
 }
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="card  bg-base-100 shadow-xl">
     <figure><img className="w-full h-[260px] rounded hover:scale-110 transition-all duration-300" src={image} alt="Shoes" /></figure>
     <p className="absolute right-0 mr-4 mt-4 px-4 bg-slate-900 text-white">${price}</p>
     <div className="card-body flex flex-col items-center">
@@ -66,15 +39,14 @@ const ProductCard = ({ item }) => {
         <p>{description}</p>
         {/* <p>Price: <span className="font-bold text-red-500">{price}rm</span></p> */}
         <div className="flex w-full justify-end">
-          <p>Unit: <span className="font-bold text-green-600">{unit_quantity}</span></p>
-         <span className="text-green-600"> <p>Available</p></span>
+          <p>Unit: <span className="font-bold text-green-600">{inventory}</span></p>
+         {inventory ? <span className="text-green-600"> <p>Available</p></span> : <span className="text-red-600 underline font-serif"> <p>Out Of Stock</p></span>}
         </div>
-        <div className="card-actions justify-end">
-            <button
-            onClick={handleAddToCart} 
-            className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4">
-                Add to Cart</button>
-        </div>
+        {inventory ? <div className="card-actions justify-end">
+        <Link to={`/orderedProduct/${_id}`}><div className="card-actions ">
+      <button onClick={handleGoToLogin} className="btn btn-primary">Order Now</button>
+    </div></Link>
+        </div> : <p className="font-bold ">Please wait until Restock</p>}
     </div>
 </div>
   );

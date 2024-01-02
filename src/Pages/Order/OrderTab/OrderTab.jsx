@@ -22,7 +22,7 @@ const OrderTab = ({ items }) => {
                 className="mySwiper"
             >
                 <SwiperSlide>
-                    <div className='grid md:grid-cols-3 gap-10'>
+                    <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-10'>
                         {
                             items.map(item => <ProductCard
                                 key={item._id}

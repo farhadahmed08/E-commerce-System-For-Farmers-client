@@ -16,7 +16,7 @@ const CheckoutForm = () => {
     const [cart,refetch] = UseCart();
     const navigate = useNavigate();
     const { user } = UseAuth();
-    const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+    const totalPrice = cart.reduce((total, item) => total + item.totalPrice, 0);
   
     useEffect(() => {
       if (totalPrice > 0) {
@@ -87,7 +87,8 @@ const CheckoutForm = () => {
             transactionId: paymentIntent.id,
             date: new Date(), //ute date convert. use moment js to
             cartIds: cart.map((item) => item._id),
-            menuItemIds: cart.map((item) => item.menuId),
+            productIds: cart.map((item) => item.productId
+            ),
             status: "succeeded",
           };
           const res = await axiosSecure.post("/payments", payment);

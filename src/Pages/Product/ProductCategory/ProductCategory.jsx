@@ -7,7 +7,7 @@ const ProductCategory = ({items, title, img}) => {
     return (
         <div className='pt-8'>
             { title && <Cover img={img} title={title}></Cover>}
-            <div className="grid md:grid-cols-2 gap-10 my-16">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-10 my-16">
                 {
                     items.map(item => <ProductItem
                         key={item._id}

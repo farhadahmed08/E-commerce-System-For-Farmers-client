@@ -76,7 +76,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-green-800 rounded-box w-52"
             >
               {navLinks}
             </ul>
@@ -93,26 +93,7 @@ const Navbar = () => {
                     <img src={user.photoURL} alt={user.displayName} />
                   </div>
                 </label>
-               <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-              >
-                <li>
-                 <NavLink to="/myAdded"> <button className="btn btn-sm  btn-ghost text-center">
-                 My added food
-                  </button></NavLink>
-                </li>
-                <li>
-                <NavLink to="/addedFood"><button className="btn btn-sm  btn-ghost">
-                Add A food item
-                  </button></NavLink>
-                </li>
-                <li>
-               <NavLink to="/myOrder"><button className="btn btn-sm  btn-ghost">
-                My order
-                  </button></NavLink>
-                </li>
-              </ul>
+              
              
               <button onClick={logOut}  className="btn btn-sm  btn-ghost relative bottom-3">Logout</button>
               

@@ -12,6 +12,7 @@ import UserHome from "../Pages/Dashboard/UserHome/UserHome";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import PrivateRoute from "./PrivateRoute";
+import Details from "../Pages/Details/Details";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,12 @@ export const router = createBrowserRouter([
       {
         path: "order/:category",
         element: <Order />,
+      },
+      {
+        path: "/orderedProduct/:id",
+        element: <PrivateRoute><Details/></PrivateRoute>,
+        loader:({params})=>fetch(`http://localhost:5000/product/${params.id}`)
+        
       },
     ],
   },
