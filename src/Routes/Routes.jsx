@@ -13,6 +13,12 @@ import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import PrivateRoute from "./PrivateRoute";
 import Details from "../Pages/Details/Details";
+import AdminRoute from "./AdminRoute";
+import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
+import AddItems from "../Pages/Dashboard/AddItems/AddItems";
+import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems";
+import UpdateItem from "../Pages/Dashboard/UpdateItem/UpdateItem";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -66,31 +72,31 @@ export const router = createBrowserRouter([
       },
       // admin only routes
 
-      // {
-      //   path:'adminHome',
-      //   element:<AdminRoute><AdminHome/></AdminRoute>
+      {
+        path:'adminHome',
+        element:<AdminRoute><AdminHome/></AdminRoute>
         
-      // },
-      // {
-      //   path:'addItems',
-      //   element:<AdminRoute><AddItems/></AdminRoute>
+      },
+      {
+        path:'addItems',
+        element:<AdminRoute><AddItems/></AdminRoute>
         
-      // },
-      // {
-      //   path:'manageItems',
-      //   element:<AdminRoute><ManageItems/></AdminRoute>
+      },
+      {
+        path:'manageItems',
+        element:<AdminRoute><ManageItems/></AdminRoute>
         
-      // },
-      // {
-      //   path:'updateItem/:id',
-      //   element:<AdminRoute><UpdateItem/></AdminRoute>,
-      //   loader: ({params})=> fetch(`http://localhost:5000/menu/${params.id}`)
+      },
+      {
+        path:'updateItem/:id',
+        element:<AdminRoute><UpdateItem/></AdminRoute>,
+        loader: ({params})=> fetch(`http://localhost:5000/product/${params.id}`)
   
-      // },
-      // {
-      //   path:'users',
-      //   element:<AdminRoute><AllUsers/></AdminRoute>
-      // },
+      },
+      {
+        path:'users',
+        element:<AdminRoute><AllUsers/></AdminRoute>
+      },
     ]
   }
 ]);
