@@ -5,6 +5,9 @@ import Map from "../../Components/Map/Map";
 import SectionTitle from "../../Components/SectionTitle";
 import Cover from "../Shared/Cover";
 import orderCoverImg from "../../assets/productBG/Untitled.jpg";
+import PaymentPartner from "./PaymentPartner";
+import DeliveryPartner from "./Deliverypartner";
+import OurCommitment from "./OurCommitment";
 
 const AboutUs = () => {
   const form = useRef();
@@ -47,11 +50,20 @@ const AboutUs = () => {
         heading="Our commitment"
         subHeading="What's new"
       ></SectionTitle>
-      
+      <OurCommitment/>
       <SectionTitle
-        heading="Our Partner"
+        heading="Our Payment Partner"
         subHeading="What's new"
       ></SectionTitle>
+
+      <PaymentPartner/>
+
+      <SectionTitle
+        heading="Delivery Partner"
+        subHeading="What's new"
+      ></SectionTitle>
+
+      <DeliveryPartner/>
 
       <SectionTitle
         heading="Contact with Us"
