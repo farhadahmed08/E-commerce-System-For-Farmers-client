@@ -70,6 +70,7 @@ const Cart = () => {
               <th>image</th>
               <th>Name</th>
               <th>Price</th>
+              <th>Unit</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -101,6 +102,7 @@ const Cart = () => {
                      
                     </td>
                     <td>${item.totalPrice}</td>
+                    <td>{item.quantity} {item.unit_name}</td>
                     <th>
                       <button
                       onClick={()=>handleDelete(item._id)}

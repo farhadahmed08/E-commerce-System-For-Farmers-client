@@ -3,9 +3,17 @@ import UseAuth from "../../Hooks/UseAuth";
 import Swal from "sweetalert2";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 const Login = () => {
+
+  const [showPassword,setShowPassword] = useState(false)
+  const [error,setError] = useState('')
+
+
+
 
     const { signIn } = UseAuth();
   const navigate = useNavigate();
@@ -23,6 +31,7 @@ const Login = () => {
     signIn(email, password).then((result) => {
       const user = result.user;
       console.log(user);
+      setError('');
       Swal.fire({
         title: "User Login Successful.",
         showClass: {
@@ -33,6 +42,9 @@ const Login = () => {
         },
       });
       navigate(from, { replace: true });
+    }).catch(error => {
+      console.log(error);
+      setError(error.message)
     });
   };
 
@@ -41,7 +53,7 @@ const Login = () => {
     return (
         <>
         <Helmet>
-          <title>Bistro Boss | Login</title>
+          <title>Farm fresh | Login</title>
         </Helmet>
         <div className="hero min-h-screen bg-base-200">
           <div className="hero-content flex-col md:flex-row-reverse">
@@ -64,16 +76,23 @@ const Login = () => {
                     className="input input-bordered"
                   />
                 </div>
-                <div className="form-control">
+                <div className="form-control ">
                   <label className="label">
                     <span className="label-text">Password</span>
                   </label>
-                  <input
-                    type="password"
+               <div className="relative">
+               <input
+                    type={showPassword ? "text":"password"}
                     name="password"
                     placeholder="password"
                     className="input input-bordered"
                   />
+                  <span className="absolute top-1/3 right-3" onClick={()=>setShowPassword(!showPassword)}>
+                    {
+                      showPassword ? <FaEyeSlash/> : <FaEye/>
+                    }
+                  </span>
+               </div>
                   <label className="label">
                     <a href="#" className="label-text-alt link link-hover">
                       Forgot password?
@@ -102,6 +121,9 @@ const Login = () => {
                   />
                 </div>
               </form>
+              {
+                error && <p className="text-red-700 ">{error}</p>
+              }
               <p className="px-6">
                 <small>
                   New Here? <Link className="text-blue-500" to="/signup">Create an account</Link>{" "}

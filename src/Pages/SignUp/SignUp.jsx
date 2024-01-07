@@ -5,10 +5,13 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 const SignUp = () => {
     const axiosPublic = UseAxiosPublic();
+    const [showPassword,setShowPassword] = useState(false)
 
     const {
         register,
@@ -122,12 +125,12 @@ const SignUp = () => {
                   <span className="text-red-600">Email is required</span>
                 )}
               </div>
-              <div className="form-control">
+              <div className="form-control relative">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type={showPassword ? "text":"password"}
                   {...register("password", {
                     required: true,
                     minLength: 6,
@@ -137,6 +140,13 @@ const SignUp = () => {
                   placeholder="password"
                   className="input input-bordered"
                 />
+                  <span className="absolute top-1/2 right-3" onClick={()=>setShowPassword(!showPassword)}>
+                    {
+                      showPassword ? <FaEyeSlash/> : <FaEye/>
+                    }
+                  </span>
+              
+               
                 {errors.password?.type === "required" && (
                   <p className="text-red-600">Password is required</p>
                 )}
@@ -154,6 +164,7 @@ const SignUp = () => {
                     and one special character.
                   </p>
                 )}
+                  
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?

@@ -14,8 +14,8 @@ const Category = () => {
     return (
         <section>
              <SectionTitle
-             subHeading={"From 11.00am to 10.00pm"}
-             heading={"What we sale"}
+             subHeading={"24 HOUR"}
+             heading={"Our Product Category"}
             >
 
             </SectionTitle>

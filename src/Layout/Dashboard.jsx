@@ -88,12 +88,12 @@ const Dashboard = () => {
             </li>
             
             <li>
-              <NavLink to="/order/salad">
-                <FaSearch></FaSearch>Menu
+              <NavLink to="/order/Vegetables">
+                <FaSearch></FaSearch>Product
               </NavLink>
             </li>
             <li>
-              <NavLink to="/">
+              <NavLink to="/about">
                 <FaEnvelope/>Contact
               </NavLink>
             </li>

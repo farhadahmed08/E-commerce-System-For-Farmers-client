@@ -28,9 +28,9 @@ const Product = () => {
             <Cover img={productImg} title="our menu"></Cover>
             <SectionTitle subHeading="Don't Miss" heading="Today's Offer"></SectionTitle>
             <ProductCategory items={ Vegetables} title="Vegetables" img={unitedImg}></ProductCategory>
-            <ProductCategory items={ DairyAndEggs} title="DairyAndEggs" img={meatAndFishImg}></ProductCategory>
+            <ProductCategory items={ DairyAndEggs} title="Dairy and Eggs" img={meatAndFishImg}></ProductCategory>
             <ProductCategory items={ Fruits} title="Fruits" img={meatAndFishImg}></ProductCategory>
-            <ProductCategory items={ MeatAndFish} title="MeatAndFish" img={meatAndFishImg}></ProductCategory>
+            <ProductCategory items={ MeatAndFish} title="Meat and Fish" img={meatAndFishImg}></ProductCategory>
             <ProductCategory items={ Grains} title="Grains" img={meatAndFishImg}></ProductCategory>
             
         </div>

@@ -77,7 +77,7 @@ const ManageItems = () => {
                     </div>
                   </td>
                   <td>{item.title}</td>
-                  <td>{item.inventory}</td>
+                  <td>{item.inventory} {item.unit_name} </td>
                   <td className="text-right">${item.price}</td>
                   <td>
                     <Link to={`/dashboard/updateItem/${item._id}`}>
