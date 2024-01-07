@@ -181,7 +181,7 @@ const SignUp = () => {
             </form>
             <p className="px-6">
               <small>
-                Already have an account <Link to="/login">Login</Link>
+                Already have an account <Link className="text-blue-500 font-bold" to="/login">Login</Link>
               </small>
             </p>
             <SocialLogin></SocialLogin>

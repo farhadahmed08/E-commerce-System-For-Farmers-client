@@ -1,7 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
 import UseAdmin from "../Hooks/UseAdmin";
 import UseCart from "../Hooks/UseCart";
-import { FaAd, FaBook, FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
+import { FaAd,  FaCalendar, FaEnvelope, FaHome, FaList, FaSearch, FaShoppingCart, FaUsers, FaUtensils } from "react-icons/fa";
+import { MdOutlineRateReview } from "react-icons/md";
 
 
 const Dashboard = () => {
@@ -71,7 +72,7 @@ const Dashboard = () => {
             </li>
             <li>
               <NavLink to="/dashboard/review">
-                <FaAd/>My Review
+              <MdOutlineRateReview />Add Review
               </NavLink>
               {/* <NavLink to="/dashboard/bookings">
                 <FaList/>My Bookings 

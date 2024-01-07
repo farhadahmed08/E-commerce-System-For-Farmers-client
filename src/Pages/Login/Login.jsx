@@ -7,6 +7,7 @@ import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
+
 const Login = () => {
 
   const [showPassword,setShowPassword] = useState(false)
@@ -45,6 +46,7 @@ const Login = () => {
     }).catch(error => {
       console.log(error);
       setError(error.message)
+     
     });
   };
 
@@ -122,7 +124,7 @@ const Login = () => {
                 </div>
               </form>
               {
-                error && <p className="text-red-700 ">{error}</p>
+                error && <p className="text-red-800 font-medium">{error}</p>
               }
               <p className="px-6">
                 <small>
