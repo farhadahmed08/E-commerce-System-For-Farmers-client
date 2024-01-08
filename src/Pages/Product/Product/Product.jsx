@@ -1,8 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import UseProduct from "../../../Hooks/UseProduct";
 import Cover from "../../Shared/Cover";
-import productImg from '../../../assets/productBG/banner.jpg'
-import unitedImg from '../../../assets/productBG/Untitled.jpg'
+import productImg from '../../../assets/productBG/product.jpg'
+import grainImg from '../../../assets/productBG/grains.jpg'
+import fruitImg from '../../../assets/productBG/fruits.jpg'
+import dairyImg from '../../../assets/productBG/dairy.png'
+import vegetable from '../../../assets/productBG/vegetable.png'
 import meatAndFishImg from '../../../assets/productBG/meat and fish.jpg'
 import SectionTitle from "../../../Components/SectionTitle";
 import ProductCategory from "../ProductCategory/ProductCategory";
@@ -25,13 +28,13 @@ const Product = () => {
              <Helmet>
                 <title>Organic | Product</title>
             </Helmet>
-            <Cover img={productImg} title="our menu"></Cover>
-            <SectionTitle subHeading="Don't Miss" heading="Today's Offer"></SectionTitle>
-            <ProductCategory items={ Vegetables} title="Vegetables" img={unitedImg}></ProductCategory>
-            <ProductCategory items={ DairyAndEggs} title="Dairy and Eggs" img={meatAndFishImg}></ProductCategory>
-            <ProductCategory items={ Fruits} title="Fruits" img={meatAndFishImg}></ProductCategory>
+            <Cover img={productImg} title="our Product" subHeading="Indulge in the pure essence of nature with Farm Fresh exquisite range. From vibrant fruits to nutrient-rich grains, our organic products embody the essence of wholesome, sustainable nourishment."></Cover>
+            <SectionTitle subHeading="Don't Miss" heading="This Weeks Deal"></SectionTitle>
+            <ProductCategory items={ Vegetables} title="Vegetables" img={vegetable} ></ProductCategory>
+            <ProductCategory items={ DairyAndEggs} title="Dairy and Eggs" img={dairyImg}></ProductCategory>
+            <ProductCategory items={ Fruits} title="Fruits" img={fruitImg}></ProductCategory>
             <ProductCategory items={ MeatAndFish} title="Meat and Fish" img={meatAndFishImg}></ProductCategory>
-            <ProductCategory items={ Grains} title="Grains" img={meatAndFishImg}></ProductCategory>
+            <ProductCategory items={ Grains} title="Grains" img={grainImg}></ProductCategory>
             
         </div>
     );

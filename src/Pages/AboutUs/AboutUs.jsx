@@ -4,10 +4,11 @@ import toast from "react-hot-toast";
 import Map from "../../Components/Map/Map";
 import SectionTitle from "../../Components/SectionTitle";
 import Cover from "../Shared/Cover";
-import orderCoverImg from "../../assets/productBG/Untitled.jpg";
+import orderCoverImg from "../../assets/productBG/aboutUs.jpg";
 import PaymentPartner from "./PaymentPartner";
-import DeliveryPartner from "./Deliverypartner";
+
 import OurCommitment from "./OurCommitment";
+import DeliveryPartner from "./DeliveryPartner";
 
 const AboutUs = () => {
   const form = useRef();
@@ -45,7 +46,7 @@ const AboutUs = () => {
   };
   return (
     <div className="">
-       <Cover img={orderCoverImg} title="About Us"></Cover>
+       <Cover img={orderCoverImg} title="About Us" subHeading="Committed to fostering a healthier world, our mission at Farm Fresh is to provide premium, certified organic products. We believe in sustainable farming practices that prioritize the well-being of both consumers and the environment."></Cover>
       <SectionTitle
         heading="Our commitment"
         subHeading="What's new"
@@ -82,9 +83,7 @@ const AboutUs = () => {
                   GET IN TOUCH WITH US
                 </h2>
                 <p className="text-base leading-relaxed text-body-color dark:text-dark-6 mb-9">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eius tempor incididunt ut labore et dolore magna aliqua. Ut
-                  enim adiqua minim veniam quis nostrud exercitation ullamco
+                Whether it is a curious inquiry, a problem to solve, or a topic to discuss, share your thoughts, and let us engage in a meaningful conversation!
                 </p>
                 <div className="mb-8 flex w-full max-w-[370px]">
                   <div className="bg-primary/5 text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center justify-center overflow-hidden rounded sm:h-[70px] sm:max-w-[70px]">
@@ -106,7 +105,7 @@ const AboutUs = () => {
                       Our Location
                     </h4>
                     <p className="text-base text-body-color dark:text-dark-6">
-                      99 S.t Jomblo Park Pekanbaru 28292. Indonesia
+                    Jln Gombak, 53100 Kuala Lumpur, Selangor. Malaysia
                     </p>
                   </div>
                 </div>
@@ -145,7 +144,7 @@ const AboutUs = () => {
                       Phone Number
                     </h4>
                     <p className="text-base text-body-color dark:text-dark-6">
-                      (+62)81 414 257 9980
+                      (+60)11 3322 7681
                     </p>
                   </div>
                 </div>
@@ -169,7 +168,7 @@ const AboutUs = () => {
                       Email Address
                     </h4>
                     <p className="text-base text-body-color dark:text-dark-6">
-                      info@yourdomain.com
+                      farhaddhkbd08@gmail.com
                     </p>
                   </div>
                 </div>

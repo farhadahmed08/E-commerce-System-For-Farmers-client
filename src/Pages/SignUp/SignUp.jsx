@@ -74,9 +74,7 @@ const SignUp = () => {
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Sign up now!</h1>
             <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+            Join our farm community and experience the joy of real, sustainable food.
             </p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -165,11 +163,7 @@ const SignUp = () => {
                   </p>
                 )}
                   
-                <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
-                    Forgot password?
-                  </a>
-                </label>
+             
               </div>
               <div className="form-control mt-6">
                 <input

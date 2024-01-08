@@ -6,7 +6,7 @@ import ProductItem from "../../Shared/ProductItem";
 const ProductCategory = ({items, title, img}) => {
     return (
         <div className='pt-8'>
-            { title && <Cover img={img} title={title}></Cover>}
+            { title && <Cover img={img} title={title} subHeading="Elevate your lifestyle with our premium organic products, meticulously curated to bring you the purest essence of nature. Experience the unparalleled quality and goodness that define Farm Fresh."></Cover>}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 gap-10 my-16">
                 {
                     items.map(item => <ProductItem

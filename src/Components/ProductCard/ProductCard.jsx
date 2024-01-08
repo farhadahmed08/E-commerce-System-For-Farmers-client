@@ -3,11 +3,20 @@ import UseAuth from "../../Hooks/UseAuth";
 
 import Swal from "sweetalert2";
 
+
 const ProductCard = ({ item }) => {
   const { user } = UseAuth();
   const { title, image, price, description, _id, inventory, unit_name } = item;
   const navigate = useNavigate();
   const location = useLocation();
+
+
+  
+
+
+
+
+
 
   const handleGoToLogin = () => {
     if (!user) {
@@ -37,6 +46,7 @@ const ProductCard = ({ item }) => {
           alt="Shoes"
         />
       </figure>
+      
       <p className="absolute right-0 mr-4 mt-4 px-4 bg-slate-900 text-white">
         ${price}
       </p>
